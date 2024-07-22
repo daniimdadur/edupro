@@ -1,0 +1,65 @@
+<form xmlns:th="http://www.thymeleaf.org" th:id="form-kelas" th:action="@{~/master/kelas/remove}"
+      th:method="post" th:object="${kelas}">
+    <input type="hidden" name="id" th:value="${kelas.id}">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel4">Delete Kelas</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row g-2">
+                <div class="col mb-3">
+                    <label for="code" class="form-label">Kode</label>
+                    <input type="text" id="code" name="code" class="form-control" th:value="${kelas.code}" readonly />
+                </div>
+                <div class="col mb-3">
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" id="name" name="name" class="form-control" th:value="${kelas.name}" readonly />
+                </div>
+            </div>
+
+            <div class="row g-2">
+                <div class="col mb-3">
+                    <label for="roomCode" class="form-label">Kode Ruang</label>
+                    <input type="text" id="roomCode" name="roomCode" class="form-control" th:value="${kelas.roomCode}" readonly />
+                    <input type="hidden" name="roomId" th:value="${kelas.roomId}">
+                </div>
+                <div class="col mb-3">
+                    <label for="institutionName" class="form-label">Lembaga</label>
+                    <input type="text" id="institutionName" name="institutionName" class="form-control" th:value="${kelas.institutionName}" readonly />
+                    <input type="hidden" name="institutionId" th:value="${kelas.institutionId}">
+                </div>
+            </div>
+
+            <div class="row g-2">
+                <div class="col mb-3">
+                    <label for="academicYearName" class="form-label">Tahun Ajaran</label>
+                    <input type="text" id="academicYearName" name="academicYearName" class="form-control" th:value="${kelas.academicYearName}" readonly />
+                    <input type="hidden" name="academicYearId" th:value="${kelas.academicYearId}">
+                </div>
+                <div class="col mb-3">
+                    <label for="levelName" class="form-label">Level</label>
+                    <input type="text" id="levelName" name="levelName" class="form-control" th:value="${kelas.levelName}" readonly />
+                    <input type="hidden" name="levelId" th:value="${kelas.levelId}">
+                </div>
+            </div>
+
+            <div class="row g-2">
+                <div class="col mb-3">
+                    <label for="semester" class="form-label">Sesi / Semester</label>
+                    <input type="text" id="semester" name="semester" class="form-control" th:value="${kelas.semester}" readonly />
+                    <input type="hidden" name="academicSessionId" th:value="${kelas.academicSessionId}">
+                </div>
+                <div class="col mb-3">
+                    <label for="homeroomTeacherName" class="form-label">Wali Kelas</label>
+                    <input type="text" id="homeroomTeacherName" name="homeroomTeacherName" class="form-control" th:value="${kelas.homeroomTeacherName}" readonly />
+                    <input type="hidden" name="homeroomTeacherId" th:value="${kelas.homeroomTeacherId}">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer input-group">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                Close
+            </button>
+        </div>
+</form>

@@ -1,0 +1,34 @@
+<form xmlns:th="http://www.thymeleaf.org" th:id="form-mapel" th:action="@{~/master/mapel/remove}"
+      th:method="post" th:object="${mapel}">
+    <input type="hidden" name="id" th:value="${mapel.id}">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel4">Delete Mata Pelajaran</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="code" class="form-label">Kode</label>
+                    <input type="text" id="code" name="code" th:value="${mapel.code}" class="form-control" readonly />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" id="name" name="name" th:value="${mapel.name}" class="form-control" readonly />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="types" class="form-label">Types</label>
+                    <input type="text" id="types" name="types" th:value="${mapel.types}" class="form-control" readonly />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer input-group">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                Close
+            </button>
+        </div>
+</form>

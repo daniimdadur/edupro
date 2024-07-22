@@ -1,0 +1,40 @@
+<form xmlns:th="http://www.thymeleaf.org" th:id="form-tahun" th:action="@{~/master/ta/remove}"
+      th:method="post" th:object="${tahunAjaran}">
+    <input type="hidden" name="id" th:value="${tahunAjaran.id}">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel4">Delete Data Siswa</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" id="name" name="name" th:value="${tahunAjaran.name}" class="form-control" readonly/>
+                </div>
+                <div class="col mb-3">
+                    <label for="curriculumName" class="form-label">Nama Kurikulum</label>
+                    <input type="text" id="curriculumName" name="curriculumName" th:value="${tahunAjaran.curriculumName}" class="form-control" readonly />
+                    <input type="hidden" name="curriculumId" th:value="${tahunAjaran.curriculumId}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-0">
+                    <label for="startDate" class="form-label">Tanggal Mulai</label>
+                    <input type="text" id="startDate" name="startDate" th:value="${tahunAjaran.startDate}" class="form-control" readonly/>
+                </div>
+                <div class="col mb-0">
+                    <label for="endDate" class="form-label">Tanggal Akhir</label>
+                    <input type="text" id="endDate" name="endDate" th:value="${tahunAjaran.endDate}" class="form-control" readonly/>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="modal-footer input-group">
+            <button type="submit" class="btn btn-danger">
+                Delete
+            </button>
+            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                Close
+            </button>
+        </div>
+</form>

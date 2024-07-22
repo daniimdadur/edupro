@@ -1,0 +1,60 @@
+<form xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" th:id="form-sesi"
+      th:action="@{~/master/sesi/save}"
+      th:method="post" th:object="${sesi}">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel4">Tambah Sesi</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+<!--            <div th:if="${#fields.hasAnyErrors()}" class="alert alert-danger errors" role="alert">-->
+<!--                <ul>-->
+<!--                    <li th:each="err : ${#fields.allErrors()}" th:text="${err}" />-->
+<!--                </ul>-->
+<!--            </div>-->
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="academicYearId" class="form-label"></label>
+                    <select id="academicYearId" name="academicYearId" th:value="${sesi.academicYearId}" data-allow-clear="true"
+                            th:class="${#fields.hasErrors('academicYearId')}? 'form-select select2 is-invalid': 'form-select select2'">
+                        <option value="">Pilih Tahun Ajaran</option>
+                        <option th:each="item : ${dataTa}" th:value="${item.id}" th:text="${item.name}" th:selected="${item.id == sesi.academicYearId}"></option>
+                    </select>
+                    <div th:if="${#fields.hasErrors('academicYearId')}" class="invalid-feedback">
+                        <span th:errors="*{academicYearId}"></span>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <label for="semester" class="form-label">Semester</label>
+                    <input type="text" id="semester" name="semester" th:value="${sesi.semester}" th:class="${#fields.hasErrors('semester')}? 'form-control is-invalid': 'form-control'" placeholder="Semester Ganjil / Genap" />
+                    <div th:if="${#fields.hasErrors('semester')}" class="invalid-feedback">
+                        <span th:errors="*{semester}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-0">
+                    <label for="startDate" class="form-label">Tanggal Di Mulai</label>
+                    <input type="date" id="startDate" name="startDate" th:value="${sesi.startDate}" th:class="${#fields.hasErrors('startDate')}? 'form-control is-invalid': 'form-control'" placeholder="startDate" />
+                    <div th:if="${#fields.hasErrors('startDate')}" th:class="invalid-feedback">
+                        <span th:errors="*{startDate}"></span>
+                    </div>
+                </div>
+                <div class="col mb-0">
+                    <label for="endDate" class="form-label">Tanggal Berakhir</label>
+                    <input type="date" id="endDate" name="endDate" th:value="${sesi.endDate}" th:class="${#fields.hasErrors('endDate')}? 'form-control is-invalid': 'form-control'" placeholder="endDate" />
+                    <div th:if="${#fields.hasErrors('endDate')}" th:class="invalid-feedback">
+                        <span th:errors="*{endDate}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer input-group">
+                <button type="submit" class="btn btn-success">
+                    <i class="ti ti-check"></i>
+                    Save
+                </button>
+                <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                    Close
+                </button>
+        </div>
+</form>
